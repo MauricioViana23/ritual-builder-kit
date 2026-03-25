@@ -1,71 +1,48 @@
 
 
-# Plano de Melhorias Visuais ZionFit — Baseado na Análise Competitiva
+# Shopify Integration + Mobile-First Redesign
 
-O documento analisa 20 marcas (10 EUA + 10 Brasil) e identifica 7 padrões visuais. As recomendações específicas para a ZionFit se concentram em **vibrância visual**, **social proof mais forte**, **animações suaves** e **uso mais agressivo do pink nos CTAs**. A landing page já está bem estruturada — as melhorias são de polimento visual.
+## Phase 1: Enable Shopify (New Store)
+- Call `shopify--enable` with `store_type: "new"` to create a development store
+- After creation, call `shopify--claim_store` so you can claim or skip
+- Once enabled, follow Shopify tooling to set up products, collections, and checkout
 
----
+## Phase 2: Mobile-First Redesign
+After Shopify is enabled and its tools/knowledge become available:
 
-## Melhorias a Implementar
+### 2a. Mobile-First Layout Overhaul
+- Audit all sections for mobile breakpoints (currently `md:` prefix used everywhere)
+- Ensure all grids collapse to single-column on mobile with proper spacing
+- Hero: stack text above product image, reduce heading sizes, full-width CTA
+- Pricing cards: stack vertically with featured card first on mobile
+- Navigation: ensure hamburger menu works smoothly on small screens
 
-### 1. Usar pink de forma mais agressiva nos CTAs e destaques
-- Todos os CTAs secundários (BenefitsSection, HowToUseSection, RitualSection) ganham hover com glow pink mais forte
-- Badges de ingredientes no Hero ganham borda pink sutil
-- Countdown timer ganha borda/glow pink pulsante
+### 2b. Mobile Checkout Optimization
+- Integrate Shopify checkout flow with mobile-optimized CTAs
+- Replace all `#offer` placeholder links with Shopify checkout URLs
+- StickyMobileCTA: connect to Shopify cart/checkout instead of anchor link
+- Ensure checkout redirects work seamlessly on mobile browsers
 
-### 2. Adicionar animações suaves para vibrância
-- Gradient shimmer sutil nos cards de benefícios on hover (overlay com gradiente animado)
-- Scale-in animation no ExitIntentPopup (já referenciado mas não definido no CSS)
-- Suave parallax/gradient no hero background
-- Adicionar keyframe `scale-in` e `shimmer` no CSS
+### 2c. Responsive Polish
+- Touch targets: ensure all buttons/links meet 44px minimum tap target
+- Typography scaling: fluid type sizes between mobile and desktop
+- Image optimization: responsive images with appropriate sizes
+- Spacing adjustments: tighter padding on mobile, breathing room on desktop
+- Test all interactive elements (accordion, FAQ, popups) on mobile viewports
 
-### 3. Social proof mais impactante
-- Trocar "+500 mulheres" por número maior formatado com contador visual estilizado ("1.247 mulheres já começaram")
-- Adicionar estrelas visuais e badge "4.9/5" no SocialProofBar
-- Adicionar micro social proof no hero: "⭐ 4.9 — 643 avaliações" ao lado das trust pills
+## Technical Details
 
-### 4. Melhorar SocialProofBar com visual mais editorial
-- Adicionar uma linha decorativa fina acima e abaixo
-- Usar tipografia serif nos nomes das publicações (padrão editorial premium como AG1)
+### Files to modify:
+- **All `src/components/zion/*.tsx`** — Mobile-first responsive classes
+- **`src/components/zion/StickyMobileCTA.tsx`** — Connect to Shopify checkout
+- **`src/components/zion/PricingSection.tsx`** — Shopify product integration + mobile stack order
+- **`src/components/zion/HeroSection.tsx`** — Mobile layout, fluid typography
+- **`src/components/zion/StickyNav.tsx`** — Mobile navigation improvements
+- **`src/index.css` / `tailwind.config.ts`** — Fluid type utilities, touch-target classes
+- **New edge function** — Shopify checkout/cart API integration
 
-### 5. Melhorar Comparison Table com checkmarks e X visuais
-- Trocar textos da coluna Zion por ✓ com fundo verde sutil
-- Trocar textos negativos por ✗ com fundo rosa sutil
-- Manter textos descritivos mas adicionar ícones visuais
-
-### 6. VideoSection com gradiente animado no placeholder
-- Adicionar gradient shimmer no fundo plum do placeholder de vídeo
-- Badge "EM BREVE" sutil no canto
-
-### 7. Melhorar Footer com links de redes sociais e ícones
-- Adicionar ícones de Instagram, TikTok, WhatsApp (placeholder links)
-- Visual mais rico e alinhado com marcas premium
-
-### 8. Hover effects nos cards de ingredientes
-- Gradient overlay sutil animado on hover (shimmer effect)
-- Borda que muda para pink on hover
-
-### 9. Ticker Strip mais vibrante
-- Aumentar levemente o tamanho da fonte
-- Usar pink mais vibrante nos separadores
-
----
-
-## Detalhes Técnicos
-
-### Arquivos a modificar:
-- **`src/index.css`** — Adicionar keyframes: `scale-in`, `shimmer`, `gradient-shift`. Adicionar classes utilitárias para glow effects
-- **`src/components/zion/HeroSection.tsx`** — Micro social proof badge, gradient background sutil, trust pills com borda pink
-- **`src/components/zion/BenefitsSection.tsx`** — Shimmer overlay on hover nos cards
-- **`src/components/zion/IngredientsSection.tsx`** — Hover border pink + shimmer
-- **`src/components/zion/SocialProofBar.tsx`** — Typography serif, linhas decorativas, badge de rating
-- **`src/components/zion/TestimonialsSection.tsx`** — Número de social proof maior (1.247), badge "4.9/5"
-- **`src/components/zion/ComparisonTable.tsx`** — Ícones visuais ✓/✗ com cores
-- **`src/components/zion/VideoSection.tsx`** — Gradient animado, badge "EM BREVE"
-- **`src/components/zion/CountdownTimer.tsx`** — Glow pink pulsante
-- **`src/components/zion/Footer.tsx`** — Ícones de redes sociais
-- **`src/components/zion/TickerStrip.tsx`** — Fonte maior, separadores mais vibrantes
-
-### Nenhum arquivo novo necessário
-Todas as melhorias são refinamentos visuais nos componentes existentes.
+### Approach:
+- CSS-first: use Tailwind's mobile-first defaults (base = mobile, `md:` = tablet+, `lg:` = desktop)
+- No new dependencies needed for responsive work
+- Shopify integration via edge functions + Shopify Storefront API
 
