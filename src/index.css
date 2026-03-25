@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --cream: 36 56% 96%;
+    --pink: 348 70% 71%;
+    --pink-lt: 345 60% 85%;
+    --pink-xlt: 345 76% 96%;
+    --plum: 298 26% 14%;
+    --sage: 100 18% 66%;
+    --sage-lt: 100 25% 92%;
+    --warm-white: 40 100% 99%;
+    --gray: 0 5% 46%;
+    --brand-border: 25 25% 89%;
+
+    --background: 36 56% 96%;
+    --foreground: 298 26% 14%;
+    --card: 40 100% 99%;
+    --card-foreground: 298 26% 14%;
+    --popover: 40 100% 99%;
+    --popover-foreground: 298 26% 14%;
+    --primary: 348 70% 71%;
+    --primary-foreground: 40 100% 99%;
+    --secondary: 100 18% 66%;
+    --secondary-foreground: 298 26% 14%;
+    --muted: 345 76% 96%;
+    --muted-foreground: 0 5% 46%;
+    --accent: 345 60% 85%;
+    --accent-foreground: 298 26% 14%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 25 25% 89%;
+    --input: 25 25% 89%;
+    --ring: 348 70% 71%;
+    --radius: 1.25rem;
+
+    --sidebar-background: 36 56% 96%;
+    --sidebar-foreground: 298 26% 14%;
+    --sidebar-primary: 348 70% 71%;
+    --sidebar-primary-foreground: 40 100% 99%;
+    --sidebar-accent: 345 60% 85%;
+    --sidebar-accent-foreground: 298 26% 14%;
+    --sidebar-border: 25 25% 89%;
+    --sidebar-ring: 348 70% 71%;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
+
+/* Fade up animation for scroll */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 25s linear infinite;
+}
+
+/* Float animation for bubbles */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float 3s ease-in-out 1s infinite;
+}
+.animate-float-delay-2 {
+  animation: float 3s ease-in-out 2s infinite;
+}
+
+/* Pulse glow for CTA */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 24px hsl(348 70% 71% / 0.35); }
+  50% { box-shadow: 0 8px 32px hsl(348 70% 71% / 0.55); }
+}
+
+/* FAQ accordion */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-answer.open {
+  max-height: 300px;
+}
+
+/* Scale-in animation */
+@keyframes scale-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-scale-in {
+  animation: scale-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shimmer overlay effect */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Gradient shift animation */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Pink glow utility */
+.glow-pink {
+  box-shadow: 0 0 20px hsl(348 70% 71% / 0.3), 0 0 40px hsl(348 70% 71% / 0.15);
+}
+.glow-pink-pulse {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 20px hsl(348 70% 71% / 0.25); }
+  50% { box-shadow: 0 4px 30px hsl(348 70% 71% / 0.5); }
+}
+
+/* Shimmer card hover effect */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, hsl(348 70% 71% / 0.08) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: none;
+  pointer-events: none;
+}
+.shimmer-card:hover::after {
+  animation: shimmer 0.8s ease-out forwards;
+}
+
+/* Mobile sticky CTA spacing */
+@media (max-width: 767px) {
+  footer {
+    padding-bottom: 4rem;
+  }
+}
