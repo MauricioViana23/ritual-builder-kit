@@ -1,48 +1,67 @@
 
 
-# Shopify Integration + Mobile-First Redesign
+# Transform ZionFit Landing Page into a Shopify Store
 
-## Phase 1: Enable Shopify (New Store)
-- Call `shopify--enable` with `store_type: "new"` to create a development store
-- After creation, call `shopify--claim_store` so you can claim or skip
-- Once enabled, follow Shopify tooling to set up products, collections, and checkout
+Your Shopify development store is connected and ready. You have **0 products** currently — we'll need to create the Zion Shot product first, then wire up the full e-commerce flow.
 
-## Phase 2: Mobile-First Redesign
-After Shopify is enabled and its tools/knowledge become available:
+---
 
-### 2a. Mobile-First Layout Overhaul
-- Audit all sections for mobile breakpoints (currently `md:` prefix used everywhere)
-- Ensure all grids collapse to single-column on mobile with proper spacing
-- Hero: stack text above product image, reduce heading sizes, full-width CTA
-- Pricing cards: stack vertically with featured card first on mobile
-- Navigation: ensure hamburger menu works smoothly on small screens
+## What We'll Build
 
-### 2b. Mobile Checkout Optimization
-- Integrate Shopify checkout flow with mobile-optimized CTAs
-- Replace all `#offer` placeholder links with Shopify checkout URLs
-- StickyMobileCTA: connect to Shopify cart/checkout instead of anchor link
-- Ensure checkout redirects work seamlessly on mobile browsers
+### 1. Create Zion Shot Product in Shopify
+- Create the real product with 3 variants matching your current pricing tiers:
+  - **1 pote (Experimente)** — R$129
+  - **2 potes (Ritual Completo)** — R$239
+  - **3 potes (Movimento)** — R$329
+- Add product description and images
 
-### 2c. Responsive Polish
-- Touch targets: ensure all buttons/links meet 44px minimum tap target
-- Typography scaling: fluid type sizes between mobile and desktop
-- Image optimization: responsive images with appropriate sizes
-- Spacing adjustments: tighter padding on mobile, breathing room on desktop
-- Test all interactive elements (accordion, FAQ, popups) on mobile viewports
+### 2. Set Up Storefront API + Cart System
+- Create `src/lib/shopify.ts` with Storefront API config (domain, token, GraphQL queries)
+- Create `src/stores/cartStore.ts` with Zustand for persistent cart state
+- Create `src/hooks/useCartSync.ts` for cart synchronization after checkout
+- Install `zustand` dependency
+
+### 3. Build Cart Drawer Component
+- Create `src/components/zion/CartDrawer.tsx` — slide-out cart with quantity controls
+- Add cart icon with item count badge to `StickyNav`
+- Checkout button opens Shopify checkout in new tab via Storefront API
+
+### 4. Connect All CTAs to Real Checkout
+- **PricingSection**: "Quero esse →" buttons add the correct variant to cart and open cart drawer
+- **StickyMobileCTA**: Add featured variant to cart on tap
+- **HeroSection / BenefitsSection / FinalCTA**: "Quero começar meu ritual →" adds featured variant to cart
+- All `href="#offer"` links either scroll to pricing or add to cart directly
+
+### 5. Mobile-First Responsive Polish
+- Ensure cart drawer is full-width on mobile
+- Touch-friendly quantity controls (44px min tap targets)
+- StickyMobileCTA shows cart count badge
+- All pricing cards stack properly on mobile (featured card first)
+
+---
 
 ## Technical Details
 
-### Files to modify:
-- **All `src/components/zion/*.tsx`** — Mobile-first responsive classes
-- **`src/components/zion/StickyMobileCTA.tsx`** — Connect to Shopify checkout
-- **`src/components/zion/PricingSection.tsx`** — Shopify product integration + mobile stack order
-- **`src/components/zion/HeroSection.tsx`** — Mobile layout, fluid typography
-- **`src/components/zion/StickyNav.tsx`** — Mobile navigation improvements
-- **`src/index.css` / `tailwind.config.ts`** — Fluid type utilities, touch-target classes
-- **New edge function** — Shopify checkout/cart API integration
+### New files:
+- `src/lib/shopify.ts` — API config, `storefrontApiRequest()`, cart mutations
+- `src/stores/cartStore.ts` — Zustand cart store with Shopify sync
+- `src/hooks/useCartSync.ts` — Visibility-change cart sync hook
+- `src/components/zion/CartDrawer.tsx` — Cart UI component
 
-### Approach:
-- CSS-first: use Tailwind's mobile-first defaults (base = mobile, `md:` = tablet+, `lg:` = desktop)
-- No new dependencies needed for responsive work
-- Shopify integration via edge functions + Shopify Storefront API
+### Modified files:
+- `src/App.tsx` — Add `useCartSync` hook
+- `src/components/zion/StickyNav.tsx` — Add CartDrawer to nav
+- `src/components/zion/PricingSection.tsx` — Fetch product from Shopify, wire buy buttons
+- `src/components/zion/StickyMobileCTA.tsx` — Add to cart action
+- `src/components/zion/HeroSection.tsx` — Wire CTA to cart
+- `src/components/zion/BenefitsSection.tsx` — Wire CTA to cart
+- `src/components/zion/FinalCTA.tsx` — Wire CTA to cart
+
+### Constants:
+- Store domain: `remix-of-remix-of-landing-page-lab-3emx3.myshopify.com`
+- Storefront token: `cc7c1e28b9abcb2aa1a5e20e1b65d352`
+- API version: `2025-07`
+
+### New dependency:
+- `zustand` (for cart state management)
 
