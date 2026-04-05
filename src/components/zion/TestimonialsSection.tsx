@@ -1,20 +1,27 @@
-import { Camera } from "lucide-react";
+import avatarAnaPaula from "@/assets/avatar-ana-paula.jpg";
+import avatarCamila from "@/assets/avatar-camila.jpg";
+import avatarJuliana from "@/assets/avatar-juliana.jpg";
+import featuredFernanda from "@/assets/featured-fernanda.jpg";
+import avatarFernanda from "@/assets/avatar-fernanda.jpg";
 
 const testimonials = [
   {
     name: "Ana Paula",
     info: "31 anos, São Paulo",
     text: "Na primeira semana já senti a diferença no inchaço. Na segunda semana virou ritual. Agora não consigo imaginar minha manhã sem ele.",
+    avatar: avatarAnaPaula,
   },
   {
     name: "Camila",
     info: "28 anos, Belo Horizonte",
     text: "O que me ganhou foi o sabor. Parece uma limonada cor de rosa. Tomo todo dia há 2 meses e não parei uma vez.",
+    avatar: avatarCamila,
   },
   {
     name: "Juliana",
     info: "34 anos, Goiânia",
     text: "Minha pastora viu minha transformação e perguntou o que eu estava fazendo diferente. Falei: cuido do templo todo dia de manhã.",
+    avatar: avatarJuliana,
   },
 ];
 
@@ -22,6 +29,8 @@ const featured = {
   name: "Fernanda Costa",
   info: "37 anos, Curitiba",
   text: "Eu não tomo o Zion Shot pra emagrecer. Tomo porque quando eu pulo, meu dia inteiro parece que faltou algo. Isso é hábito. Isso é ritual. Isso é ZionFit.",
+  photo: featuredFernanda,
+  avatar: avatarFernanda,
 };
 
 const TestimonialsSection = () => (
@@ -30,7 +39,6 @@ const TestimonialsSection = () => (
       <h2 className="fade-up text-center font-display text-4xl font-bold text-plum md:text-[52px]">
         Quem já <span className="text-pink">começou.</span>
       </h2>
-      {/* Rating badge */}
       <div className="fade-up mt-4 flex items-center justify-center gap-2">
         <span className="text-pink text-base">★★★★★</span>
         <span className="rounded-full bg-pink-xlt px-3 py-1 text-xs font-bold text-pink">4.9/5</span>
@@ -45,11 +53,14 @@ const TestimonialsSection = () => (
             <div className="flex gap-1 text-pink text-lg mb-4">★★★★★</div>
             <p className="text-sm leading-relaxed text-plum/80 italic">"{t.text}"</p>
             <div className="mt-5 border-t border-brand-border pt-4 flex items-center gap-3">
-              {/* Photo placeholder — replace with real customer photo */}
-              <div className="relative h-12 w-12 rounded-full bg-pink-lt border-2 border-dashed border-pink/30 flex items-center justify-center overflow-hidden shrink-0">
-                <Camera className="h-4 w-4 text-pink/50" />
-                {/* When adding real photo, use: <img src="..." alt={t.name} className="absolute inset-0 w-full h-full object-cover" /> */}
-              </div>
+              <img
+                src={t.avatar}
+                alt={t.name}
+                className="h-12 w-12 rounded-full object-cover shrink-0"
+                loading="lazy"
+                width={512}
+                height={512}
+              />
               <div>
                 <p className="font-display text-base font-semibold text-plum">{t.name}</p>
                 <p className="text-xs text-brand-gray">{t.info}</p>
@@ -59,17 +70,17 @@ const TestimonialsSection = () => (
         ))}
       </div>
 
-      {/* Featured with large photo */}
+      {/* Featured */}
       <div className="fade-up mt-10 rounded-brand-lg bg-plum overflow-hidden md:grid md:grid-cols-[1fr_1.5fr]">
-        {/* Featured photo placeholder */}
-        <div className="relative aspect-square md:aspect-auto bg-warm-white/5 border-r border-dashed border-warm-white/10">
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
-            <div className="h-16 w-16 rounded-full bg-warm-white/10 flex items-center justify-center">
-              <Camera className="h-7 w-7 text-warm-white/40" />
-            </div>
-            <p className="text-sm font-semibold text-warm-white/40">Foto de {featured.name}</p>
-            <p className="text-[10px] text-warm-white/30">Insira foto real aqui</p>
-          </div>
+        <div className="relative aspect-square md:aspect-auto">
+          <img
+            src={featured.photo}
+            alt={`Foto de ${featured.name}`}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            width={768}
+            height={768}
+          />
         </div>
 
         <div className="p-10 md:p-14 text-center md:text-left flex flex-col justify-center">
@@ -78,9 +89,14 @@ const TestimonialsSection = () => (
             "{featured.text}"
           </p>
           <div className="mt-6 flex items-center justify-center md:justify-start gap-3">
-            <div className="h-12 w-12 rounded-full bg-pink-lt border-2 border-dashed border-pink/30 flex items-center justify-center overflow-hidden">
-              <Camera className="h-5 w-5 text-pink/50" />
-            </div>
+            <img
+              src={featured.avatar}
+              alt={featured.name}
+              className="h-12 w-12 rounded-full object-cover"
+              loading="lazy"
+              width={512}
+              height={512}
+            />
             <div className="text-left">
               <p className="font-display text-lg font-semibold text-pink-lt">{featured.name}</p>
               <p className="text-sm text-warm-white/60">{featured.info}</p>

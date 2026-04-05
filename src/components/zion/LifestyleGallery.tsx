@@ -1,12 +1,17 @@
-import { Camera } from "lucide-react";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
 
 const galleryItems = [
-  { label: "Manhã com Zion Shot", aspect: "aspect-square" },
-  { label: "Preparando o ritual", aspect: "aspect-[4/5]" },
-  { label: "Na cozinha", aspect: "aspect-square" },
-  { label: "Resultado real", aspect: "aspect-[4/5]" },
-  { label: "Estilo de vida", aspect: "aspect-square" },
-  { label: "Minha rotina", aspect: "aspect-square" },
+  { label: "Manhã com Zion Shot", aspect: "aspect-square", img: gallery1 },
+  { label: "Preparando o ritual", aspect: "aspect-[4/5]", img: gallery2 },
+  { label: "Na cozinha", aspect: "aspect-square", img: gallery3 },
+  { label: "Resultado real", aspect: "aspect-[4/5]", img: gallery4 },
+  { label: "Estilo de vida", aspect: "aspect-square", img: gallery5 },
+  { label: "Minha rotina", aspect: "aspect-square", img: gallery6 },
 ];
 
 const LifestyleGallery = () => (
@@ -24,23 +29,20 @@ const LifestyleGallery = () => (
         </p>
       </div>
 
-      {/* Masonry-style grid */}
       <div className="fade-up grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {galleryItems.map((item, i) => (
           <div
             key={i}
-            className={`group relative ${item.aspect} overflow-hidden rounded-brand bg-sage-lt border-2 border-dashed border-pink/20 hover:border-pink/50 transition-all duration-300`}
+            className={`group relative ${item.aspect} overflow-hidden rounded-brand transition-all duration-300`}
           >
-            {/* Placeholder — substitute by <img> with the real photo */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center p-4">
-              <div className="h-12 w-12 rounded-full bg-pink-xlt flex items-center justify-center">
-                <Camera className="h-5 w-5 text-pink" />
-              </div>
-              <p className="text-xs font-semibold text-plum/60">{item.label}</p>
-              <p className="text-[10px] text-brand-gray">Insira foto aqui</p>
-            </div>
-
-            {/* Hover overlay for when real photos are added */}
+            <img
+              src={item.img}
+              alt={item.label}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              width={768}
+              height={768}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-plum/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-xs font-semibold text-warm-white">{item.label}</p>
