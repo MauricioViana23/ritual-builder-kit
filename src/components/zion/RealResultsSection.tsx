@@ -1,4 +1,10 @@
-import { Camera, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import resultMariana from "@/assets/result-mariana.jpg";
+import resultPatricia from "@/assets/result-patricia.jpg";
+import resultGabriela from "@/assets/result-gabriela.jpg";
+import avatarMariana from "@/assets/avatar-mariana.jpg";
+import avatarPatricia from "@/assets/avatar-patricia.jpg";
+import avatarGabriela from "@/assets/avatar-gabriela.jpg";
 
 const results = [
   {
@@ -6,18 +12,24 @@ const results = [
     age: "29 anos",
     quote: "Em 21 dias, minha barriga desinchada sem mudar a alimentação.",
     days: "21 dias",
+    photo: resultMariana,
+    avatar: avatarMariana,
   },
   {
     name: "Patrícia R.",
     age: "35 anos",
     quote: "Energia o dia todo, sem aquela queda das 15h. Tomo religiosamente.",
     days: "30 dias",
+    photo: resultPatricia,
+    avatar: avatarPatricia,
   },
   {
     name: "Gabriela M.",
     age: "42 anos",
     quote: "Minha pele mudou. Minha disposição mudou. Eu mudei.",
     days: "45 dias",
+    photo: resultGabriela,
+    avatar: avatarGabriela,
   },
 ];
 
@@ -42,31 +54,32 @@ const RealResultsSection = () => (
             key={i}
             className="group rounded-brand-lg bg-warm-white border border-brand-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
           >
-            {/* Photo placeholder — replace with real before/after */}
-            <div className="relative aspect-[3/4] bg-sage-lt border-b border-dashed border-pink/20">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
-                <div className="h-14 w-14 rounded-full bg-pink-xlt flex items-center justify-center">
-                  <Camera className="h-6 w-6 text-pink" />
-                </div>
-                <p className="text-sm font-semibold text-plum/60">Foto de {r.name}</p>
-                <p className="text-[10px] text-brand-gray">Insira foto real aqui</p>
-              </div>
-
-              {/* Days badge */}
+            <div className="relative aspect-[3/4]">
+              <img
+                src={r.photo}
+                alt={`Resultado de ${r.name}`}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                width={600}
+                height={800}
+              />
               <div className="absolute top-3 right-3 rounded-full bg-pink px-3 py-1 text-xs font-bold text-warm-white">
                 {r.days}
               </div>
             </div>
 
-            {/* Info */}
             <div className="p-6">
               <div className="flex gap-1 text-pink text-sm mb-2">★★★★★</div>
               <p className="text-sm italic text-plum/80 leading-relaxed">"{r.quote}"</p>
               <div className="mt-4 flex items-center gap-3 border-t border-brand-border pt-4">
-                {/* Avatar placeholder */}
-                <div className="h-10 w-10 rounded-full bg-pink-lt border-2 border-dashed border-pink/30 flex items-center justify-center">
-                  <Camera className="h-4 w-4 text-pink/50" />
-                </div>
+                <img
+                  src={r.avatar}
+                  alt={r.name}
+                  className="h-10 w-10 rounded-full object-cover"
+                  loading="lazy"
+                  width={512}
+                  height={512}
+                />
                 <div>
                   <p className="font-display text-sm font-semibold text-plum">{r.name}</p>
                   <p className="text-xs text-brand-gray">{r.age}</p>

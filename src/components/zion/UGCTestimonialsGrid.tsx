@@ -1,10 +1,14 @@
-import { Camera, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
+import ugcAnaFit from "@/assets/ugc-ana-fit.jpg";
+import ugcCamilaWellness from "@/assets/ugc-camila-wellness.jpg";
+import ugcJuLifestyle from "@/assets/ugc-ju-lifestyle.jpg";
+import ugcFerBianchini from "@/assets/ugc-fer-bianchini.jpg";
 
 const ugcItems = [
-  { name: "@ana.fit", caption: "Meu ritual de toda manhã 💕", likes: "342" },
-  { name: "@camilawellness", caption: "Pink lemonade que cura a alma ✨", likes: "518" },
-  { name: "@ju.lifestyle", caption: "Dia 30 e não paro mais!", likes: "289" },
-  { name: "@ferbianchini", caption: "O segredo da minha manhã 🌸", likes: "456" },
+  { name: "@ana.fit", caption: "Meu ritual de toda manhã 💕", likes: "342", img: ugcAnaFit },
+  { name: "@camilawellness", caption: "Pink lemonade que cura a alma ✨", likes: "518", img: ugcCamilaWellness },
+  { name: "@ju.lifestyle", caption: "Dia 30 e não paro mais!", likes: "289", img: ugcJuLifestyle },
+  { name: "@ferbianchini", caption: "O segredo da minha manhã 🌸", likes: "456", img: ugcFerBianchini },
 ];
 
 const UGCTestimonialsGrid = () => (
@@ -29,18 +33,16 @@ const UGCTestimonialsGrid = () => (
         {ugcItems.map((item, i) => (
           <div
             key={i}
-            className="group relative aspect-square overflow-hidden rounded-brand bg-warm-white/5 border-2 border-dashed border-warm-white/20 hover:border-pink/50 transition-all duration-300"
+            className="group relative aspect-square overflow-hidden rounded-brand transition-all duration-300"
           >
-            {/* Photo placeholder */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4">
-              <div className="h-12 w-12 rounded-full bg-warm-white/10 flex items-center justify-center">
-                <Camera className="h-5 w-5 text-warm-white/40" />
-              </div>
-              <p className="text-xs font-semibold text-warm-white/40">Foto UGC</p>
-              <p className="text-[10px] text-warm-white/30">Insira foto aqui</p>
-            </div>
-
-            {/* Hover overlay with info */}
+            <img
+              src={item.img}
+              alt={item.caption}
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              width={768}
+              height={768}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-plum/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute bottom-0 left-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-xs font-bold text-warm-white">{item.name}</p>
