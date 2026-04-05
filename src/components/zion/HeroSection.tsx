@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useShopifyProducts } from "@/hooks/useShopifyProducts";
 import { Loader2 } from "lucide-react";
-import productImg from "@/assets/zion-shot-product.png";
 
 const HeroSection = () => {
   const { products, addToCart, isLoading } = useShopifyProducts();
@@ -78,7 +77,7 @@ const HeroSection = () => {
             </div>
 
             <img
-              src={productImg}
+              src="/assets/zion-shot-product.png"
               alt="Zion Shot — Shot Matinal Diário sabor Pink Lemonade"
               className="mx-auto w-52 drop-shadow-xl md:w-72"
             />

@@ -1,10 +1,4 @@
-import { ArrowRight } from "lucide-react"; 
-import resultMariana from "@/assets/result-mariana.jpg";
-import resultPatricia from "@/assets/result-patricia.jpg";
-import resultGabriela from "@/assets/result-gabriela.jpg";
-import avatarMariana from "@/assets/avatar-mariana.jpg";
-import avatarPatricia from "@/assets/avatar-patricia.jpg";
-import avatarGabriela from "@/assets/avatar-gabriela.jpg";
+import { ArrowRight } from "lucide-react";
 
 const results = [
   {
@@ -12,24 +6,24 @@ const results = [
     age: "29 anos",
     quote: "Em 21 dias, minha barriga desinchada sem mudar a alimentação.",
     days: "21 dias",
-    photo: resultMariana,
-    avatar: avatarMariana,
+    photo: "/assets/result-mariana.jpg",
+    avatar: "/assets/avatar-mariana.jpg",
   },
   {
     name: "Patrícia R.",
     age: "35 anos",
     quote: "Energia o dia todo, sem aquela queda das 15h. Tomo religiosamente.",
     days: "30 dias",
-    photo: resultPatricia,
-    avatar: avatarPatricia,
+    photo: "/assets/result-patricia.jpg",
+    avatar: "/assets/avatar-patricia.jpg",
   },
   {
     name: "Gabriela M.",
     age: "42 anos",
     quote: "Minha pele mudou. Minha disposição mudou. Eu mudei.",
     days: "45 dias",
-    photo: resultGabriela,
-    avatar: avatarGabriela,
+    photo: "/assets/result-gabriela.jpg",
+    avatar: "/assets/avatar-gabriela.jpg",
   },
 ];
 
@@ -38,10 +32,10 @@ const RealResultsSection = () => (
     <div className="mx-auto max-w-6xl">
       <div className="fade-up text-center mb-14">
         <p className="text-sm font-semibold uppercase tracking-widest text-pink">
-          Resultados reais
+          🎯 finalmente ficou mais fácil
         </p>
         <h2 className="mt-3 font-display text-4xl font-bold text-plum md:text-[52px]">
-          Transformações de <span className="text-pink">verdade.</span>
+          Ter um corpo saudável <span className="text-pink">e leve.</span>
         </h2>
         <p className="mt-4 text-brand-gray max-w-lg mx-auto">
           Fotos enviadas por nossas clientes. Sem filtro. Sem edição.
