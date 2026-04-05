@@ -6,7 +6,7 @@ import HeroSection from "@/components/zion/HeroSection";
 import TensionSection from "@/components/zion/TensionSection";
 import LifestyleBanner from "@/components/zion/LifestyleBanner";
 import RitualSection from "@/components/zion/RitualSection";
-import BenefitsSection from "@/components/zion/BenefitsSection";
+
 import BenefitsHeroSection from "@/components/zion/BenefitsHeroSection";
 import ComparisonTable from "@/components/zion/ComparisonTable";
 import TestimonialsSection from "@/components/zion/TestimonialsSection";
