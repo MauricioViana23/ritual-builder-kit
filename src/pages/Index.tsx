@@ -49,7 +49,7 @@ const Index = () => {
       <TensionSection />
       <LifestyleBanner />
       <RitualSection />
-      <BenefitsSection />
+      
       <BenefitsHeroSection />
       <ComparisonTable />
       <TestimonialsSection />
