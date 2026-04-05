@@ -1,21 +1,17 @@
-import lifestyleBannerImg from "@/assets/lifestyle-banner.jpg";
-
 const LifestyleBanner = () => (
   <section className="relative overflow-hidden">
     <div className="relative h-[320px] md:h-[480px]">
       <img
-        src={lifestyleBannerImg}
+        src="/assets/lifestyle-banner.jpg"
         alt="Produto ZionFit em uma cozinha moderna com limonada rosa"
         className="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
         width={1920}
         height={1080}
       />
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-plum/70 via-plum/30 to-transparent pointer-events-none" />
     </div>
 
-    {/* Overlay text */}
     <div className="absolute inset-0 flex items-center pointer-events-none">
       <div className="mx-auto max-w-6xl px-6 w-full">
         <div className="max-w-md">

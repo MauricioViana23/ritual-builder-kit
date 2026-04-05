@@ -1,14 +1,10 @@
 import { Instagram } from "lucide-react";
-import ugcAnaFit from "@/assets/ugc-ana-fit.jpg";
-import ugcCamilaWellness from "@/assets/ugc-camila-wellness.jpg";
-import ugcJuLifestyle from "@/assets/ugc-ju-lifestyle.jpg";
-import ugcFerBianchini from "@/assets/ugc-fer-bianchini.jpg";
 
 const ugcItems = [
-  { name: "@ana.fit", caption: "Meu ritual de toda manhã 💕", likes: "342", img: ugcAnaFit },
-  { name: "@camilawellness", caption: "Pink lemonade que cura a alma ✨", likes: "518", img: ugcCamilaWellness },
-  { name: "@ju.lifestyle", caption: "Dia 30 e não paro mais!", likes: "289", img: ugcJuLifestyle },
-  { name: "@ferbianchini", caption: "O segredo da minha manhã 🌸", likes: "456", img: ugcFerBianchini },
+  { name: "@ana.fit", caption: "Meu ritual de toda manhã 💕", likes: "342", img: "/assets/ugc-ana-fit.jpg" },
+  { name: "@camilawellness", caption: "Pink lemonade que cura a alma ✨", likes: "518", img: "/assets/ugc-camila-wellness.jpg" },
+  { name: "@ju.lifestyle", caption: "Dia 30 e não paro mais!", likes: "289", img: "/assets/ugc-ju-lifestyle.jpg" },
+  { name: "@ferbianchini", caption: "O segredo da minha manhã 🌸", likes: "456", img: "/assets/ugc-fer-bianchini.jpg" },
 ];
 
 const UGCTestimonialsGrid = () => (
