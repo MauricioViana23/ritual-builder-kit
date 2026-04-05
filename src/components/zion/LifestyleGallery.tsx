@@ -1,10 +1,17 @@
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
+
 const galleryItems = [
-  { label: "Manhã com Zion Shot", aspect: "aspect-square", img: "/assets/gallery-1.jpg" },
-  { label: "Preparando o ritual", aspect: "aspect-[4/5]", img: "/assets/gallery-2.jpg" },
-  { label: "Na cozinha", aspect: "aspect-square", img: "/assets/gallery-3.jpg" },
-  { label: "Resultado real", aspect: "aspect-[4/5]", img: "/assets/gallery-4.jpg" },
-  { label: "Estilo de vida", aspect: "aspect-square", img: "/assets/gallery-5.jpg" },
-  { label: "Minha rotina", aspect: "aspect-square", img: "/assets/gallery-6.jpg" },
+  { label: "Manhã com Zion Shot", aspect: "aspect-square", img: gallery1 },
+  { label: "Preparando o ritual", aspect: "aspect-[4/5]", img: gallery2 },
+  { label: "Na cozinha", aspect: "aspect-square", img: gallery3 },
+  { label: "Resultado real", aspect: "aspect-[4/5]", img: gallery4 },
+  { label: "Estilo de vida", aspect: "aspect-square", img: gallery5 },
+  { label: "Minha rotina", aspect: "aspect-square", img: gallery6 },
 ];
 
 const LifestyleGallery = () => (

@@ -1,21 +1,27 @@
+import avatarAnaPaula from "@/assets/avatar-ana-paula.jpg";
+import avatarCamila from "@/assets/avatar-camila.jpg";
+import avatarJuliana from "@/assets/avatar-juliana.jpg";
+import featuredFernanda from "@/assets/featured-fernanda.jpg";
+import avatarFernanda from "@/assets/avatar-fernanda.jpg";
+
 const testimonials = [
   {
     name: "Ana Paula",
     info: "31 anos, São Paulo",
     text: "Na primeira semana já senti a diferença no inchaço. Na segunda semana virou ritual. Agora não consigo imaginar minha manhã sem ele.",
-    avatar: "/assets/avatar-ana-paula.jpg",
+    avatar: avatarAnaPaula,
   },
   {
     name: "Camila",
     info: "28 anos, Belo Horizonte",
     text: "O que me ganhou foi o sabor. Parece uma limonada cor de rosa. Tomo todo dia há 2 meses e não parei uma vez.",
-    avatar: "/assets/avatar-camila.jpg",
+    avatar: avatarCamila,
   },
   {
     name: "Juliana",
     info: "34 anos, Goiânia",
     text: "Minha pastora viu minha transformação e perguntou o que eu estava fazendo diferente. Falei: cuido do templo todo dia de manhã.",
-    avatar: "/assets/avatar-juliana.jpg",
+    avatar: avatarJuliana,
   },
 ];
 
@@ -23,8 +29,8 @@ const featured = {
   name: "Fernanda Costa",
   info: "37 anos, Curitiba",
   text: "Eu não tomo o Zion Shot pra emagrecer. Tomo porque quando eu pulo, meu dia inteiro parece que faltou algo. Isso é hábito. Isso é ritual. Isso é ZionFit.",
-  photo: "/assets/featured-fernanda.jpg",
-  avatar: "/assets/avatar-fernanda.jpg",
+  photo: featuredFernanda,
+  avatar: avatarFernanda,
 };
 
 const TestimonialsSection = () => (

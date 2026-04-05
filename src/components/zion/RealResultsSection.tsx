@@ -1,4 +1,10 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react"; 
+import resultMariana from "@/assets/result-mariana.jpg";
+import resultPatricia from "@/assets/result-patricia.jpg";
+import resultGabriela from "@/assets/result-gabriela.jpg";
+import avatarMariana from "@/assets/avatar-mariana.jpg";
+import avatarPatricia from "@/assets/avatar-patricia.jpg";
+import avatarGabriela from "@/assets/avatar-gabriela.jpg";
 
 const results = [
   {
@@ -6,24 +12,24 @@ const results = [
     age: "29 anos",
     quote: "Em 21 dias, minha barriga desinchada sem mudar a alimentação.",
     days: "21 dias",
-    photo: "/assets/result-mariana.jpg",
-    avatar: "/assets/avatar-mariana.jpg",
+    photo: resultMariana,
+    avatar: avatarMariana,
   },
   {
     name: "Patrícia R.",
     age: "35 anos",
     quote: "Energia o dia todo, sem aquela queda das 15h. Tomo religiosamente.",
     days: "30 dias",
-    photo: "/assets/result-patricia.jpg",
-    avatar: "/assets/avatar-patricia.jpg",
+    photo: resultPatricia,
+    avatar: avatarPatricia,
   },
   {
     name: "Gabriela M.",
     age: "42 anos",
     quote: "Minha pele mudou. Minha disposição mudou. Eu mudei.",
     days: "45 dias",
-    photo: "/assets/result-gabriela.jpg",
-    avatar: "/assets/avatar-gabriela.jpg",
+    photo: resultGabriela,
+    avatar: avatarGabriela,
   },
 ];
 
