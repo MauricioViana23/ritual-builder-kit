@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react"; 
 import resultMariana from "@/assets/result-mariana.jpg";
 import resultPatricia from "@/assets/result-patricia.jpg";
 import resultGabriela from "@/assets/result-gabriela.jpg";
