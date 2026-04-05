@@ -3,18 +3,15 @@ import { useFadeUp } from "@/hooks/useFadeUp";
 import AnnouncementBar from "@/components/zion/AnnouncementBar";
 import StickyNav from "@/components/zion/StickyNav";
 import HeroSection from "@/components/zion/HeroSection";
-import SocialProofBar from "@/components/zion/SocialProofBar";
-import TickerStrip from "@/components/zion/TickerStrip";
 import TensionSection from "@/components/zion/TensionSection";
 import LifestyleBanner from "@/components/zion/LifestyleBanner";
 import RitualSection from "@/components/zion/RitualSection";
 import BenefitsSection from "@/components/zion/BenefitsSection";
 import RealResultsSection from "@/components/zion/RealResultsSection";
-import IngredientsSection from "@/components/zion/IngredientsSection";
+import RitualIngredientsSection from "@/components/zion/RitualIngredientsSection";
 import ComparisonTable from "@/components/zion/ComparisonTable";
 import TestimonialsSection from "@/components/zion/TestimonialsSection";
 import UGCTestimonialsGrid from "@/components/zion/UGCTestimonialsGrid";
-import VideoSection from "@/components/zion/VideoSection";
 import HowToUseSection from "@/components/zion/HowToUseSection";
 import LifestyleGallery from "@/components/zion/LifestyleGallery";
 import PricingSection from "@/components/zion/PricingSection";
@@ -50,18 +47,15 @@ const Index = () => {
       <AnnouncementBar />
       <StickyNav />
       <HeroSection />
-      <SocialProofBar />
-      <TickerStrip />
       <TensionSection />
       <LifestyleBanner />
       <RitualSection />
       <BenefitsSection />
       <RealResultsSection />
-      <IngredientsSection />
+      <RitualIngredientsSection />
       <ComparisonTable />
       <TestimonialsSection />
       <UGCTestimonialsGrid />
-      <VideoSection />
       <HowToUseSection />
       <LifestyleGallery />
       <PricingSection />
